@@ -4,6 +4,6 @@ class Loadgame : MonoBehaviour
 {
     public void Restart()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level1");
     }
 }

@@ -7,7 +7,7 @@ class Player1 : MonoBehaviour
     public KeyCode moveLeftKey = KeyCode.A;
     public KeyCode moveRightKey = KeyCode.D;
     public KeyCode JumpKey = KeyCode.W;
-    public KeyCode punchkey = KeyCode.Q;
+    public KeyCode punchkey = KeyCode.R;
     bool canjump = false;
     bool hitting = false;
     float direction = 0.0f;
@@ -45,7 +45,7 @@ class Player1 : MonoBehaviour
         }
         if (isPunchPressed && hitting)
         {
-            SceneManager.LoadScene("Game Over");
+            SceneManager.LoadScene("Game Over p1");
         }
     }
 
