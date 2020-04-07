@@ -777,7 +777,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Game Over
 
-    Player 1 wins'
+'
 --- !u!222 &1392981542
 CanvasRenderer:
   m_ObjectHideFlags: 0

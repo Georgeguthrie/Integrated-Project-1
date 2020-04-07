@@ -9,9 +9,9 @@ class Player1 : MonoBehaviour
     public KeyCode JumpKey = KeyCode.W;
     public KeyCode punchkey = KeyCode.R;
     bool canjump = false;
-    bool hitting = false;
     float direction = 0.0f;
     public float speed = 0.2f;
+    public int health = 100;
 
     void FixedUpdate()
     {
@@ -25,8 +25,7 @@ class Player1 : MonoBehaviour
         bool isLeftPressed = Input.GetKey(moveLeftKey);
         bool isRightPressed = Input.GetKey(moveRightKey);
         bool isJumpPressed = Input.GetKey(JumpKey);
-        bool isPunchPressed = Input.GetKey(punchkey);
-
+        
         if (isLeftPressed)
         {
             direction = -1.0f;
@@ -41,12 +40,8 @@ class Player1 : MonoBehaviour
         }
         if (isJumpPressed && canjump)
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector3.up * 280);
-        }
-        if (isPunchPressed && hitting)
-        {
-            SceneManager.LoadScene("Game Over p1");
-        }
+            GetComponent<Rigidbody2D>().AddForce(Vector3.up * 400);
+        }       
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -55,10 +50,6 @@ class Player1 : MonoBehaviour
         {
             case "Bottom Wall":
                 canjump = true;
-                break;
-
-            case "Player 2":
-                hitting = true;
                 break;
         }
     }
@@ -69,10 +60,16 @@ class Player1 : MonoBehaviour
             case "Bottom Wall":
                 canjump = false;
                 break;
+        }
+    }
 
-            case "Player 2":
-                hitting = false;
-                break;
+    public void TakeDamage (int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Game Over p1");
         }
     }
 }
