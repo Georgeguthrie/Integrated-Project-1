@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Loadmainmeu.cs" />
     <Compile Include="Assets\Scripts\Player1.cs" />
     <Compile Include="Assets\Scripts\Player2.cs" />
+    <Compile Include="Assets\Scripts\SpriteAnimator.cs" />
     <Compile Include="Assets\Scripts\Weapon1.cs" />
     <Compile Include="Assets\Scripts\Weapon2.cs" />
     <Reference Include="Unity.Timeline.Editor">
