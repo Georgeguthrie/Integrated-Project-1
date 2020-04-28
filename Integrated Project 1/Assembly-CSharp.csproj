@@ -63,18 +63,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Bulletp1.cs" />
     <Compile Include="Assets\Scripts\Bulletp2.cs" />
     <Compile Include="Assets\Scripts\CountdownTimer.cs" />
-    <Compile Include="Assets\Scripts\Loadgame.cs" />
-    <Compile Include="Assets\Scripts\Loadlevel1.cs" />
-    <Compile Include="Assets\Scripts\Loadlevel2.cs" />
-    <Compile Include="Assets\Scripts\Loadmainmeu.cs" />
+    <Compile Include="Assets\Scripts\HBulletp1.cs" />
+    <Compile Include="Assets\Scripts\HBulletp2.cs" />
+    <Compile Include="Assets\Scripts\Load.cs" />
+    <Compile Include="Assets\Scripts\PBulletp1.cs" />
     <Compile Include="Assets\Scripts\Player1.cs" />
     <Compile Include="Assets\Scripts\Player2.cs" />
-    <Compile Include="Assets\Scripts\SpriteAnimator.cs" />
+    <Compile Include="Assets\Scripts\Player2P.cs" />
+    <Compile Include="Assets\Scripts\PPlayer1.cs" />
+    <Compile Include="Assets\Scripts\PWeapon1.cs" />
+    <Compile Include="Assets\Scripts\PWeapon2.cs" />
+    <Compile Include="Assets\Scripts\Shotbar1.cs" />
+    <Compile Include="Assets\Scripts\Shotbar2.cs" />
     <Compile Include="Assets\Scripts\Weapon1.cs" />
     <Compile Include="Assets\Scripts\Weapon2.cs" />
+    <Compile Include="Assets\Scripts\YPlayer1.cs" />
+    <Compile Include="Assets\Scripts\YPlayer2.cs" />
+    <Compile Include="Assets\Scripts\YWeapon1.cs" />
+    <Compile Include="Assets\Scripts\YWeapon2.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/Year 1/Trimester B/Integrated Project 1/Github/Integrated-Project-1/Integrated Project 1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

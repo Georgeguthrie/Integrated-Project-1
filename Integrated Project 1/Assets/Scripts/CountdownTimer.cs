@@ -22,7 +22,7 @@ public class CountdownTimer : MonoBehaviour
         }
         if (currentTime < 0)
         {
-            SceneManager.LoadScene("Game Over p1");
+            SceneManager.LoadScene("Main Menu");
         }
     }
 }

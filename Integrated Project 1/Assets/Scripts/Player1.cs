@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -7,11 +8,15 @@ class Player1 : MonoBehaviour
     public KeyCode moveLeftKey = KeyCode.A;
     public KeyCode moveRightKey = KeyCode.D;
     public KeyCode JumpKey = KeyCode.W;
-    public KeyCode punchkey = KeyCode.R;
+    public KeyCode Block = KeyCode.E;
     bool canjump = false;
     float direction = 0.0f;
     public float speed = 0.2f;
     public int health = 100;
+    public Animator animator;
+    bool blocking = false;
+    private Renderer rend;
+    public Color damage1 = Color.white;
 
     void FixedUpdate()
     {
@@ -25,23 +30,44 @@ class Player1 : MonoBehaviour
         bool isLeftPressed = Input.GetKey(moveLeftKey);
         bool isRightPressed = Input.GetKey(moveRightKey);
         bool isJumpPressed = Input.GetKey(JumpKey);
-        
+        bool isBlockPressed = Input.GetKey(Block);
+
         if (isLeftPressed)
         {
             direction = -1.0f;
+            animator.SetBool("IsWalk", true);
         }
         else if (isRightPressed)
         {
             direction = 1.0f;
+            animator.SetBool("IsWalk", true);
         }
         else
         {
             direction = 0.0f;
+            animator.SetBool("IsWalk", false);
         }
         if (isJumpPressed && canjump)
         {
+            animator.SetBool("Isjump", true);
             GetComponent<Rigidbody2D>().AddForce(Vector3.up * 400);
-        }       
+            StartCoroutine(Timer());
+            IEnumerator Timer()
+            {
+                yield return new WaitForSeconds(1.5f);
+                animator.SetBool("Isjump", false);
+            }
+        }
+        if (isBlockPressed)
+        {
+            blocking = true;
+            animator.SetBool("IsBlock", true);
+        }
+        else
+        {
+            blocking = false;
+            animator.SetBool("IsBlock", false);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -62,14 +88,21 @@ class Player1 : MonoBehaviour
                 break;
         }
     }
-
-    public void TakeDamage (int damage)
+    public void TakeDamage(int damage)
     {
-        health -= damage;
-
-        if (health <= 0)
+        if (blocking == false)
         {
-            SceneManager.LoadScene("Game Over p1");
+            health -= damage;
+
+            if (health <= 0)
+            {
+                SceneManager.LoadScene("Game Over p2");
+            }
+            if (health <= 50)
+            {
+                rend = GetComponent<Renderer>();
+                rend.material.color = damage1;
+            }
         }
     }
 }
